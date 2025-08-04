@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chakerwarti Sons & Traders - Medical Equipment Excellence</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #fff, #f0f8ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    .cta-btn {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: slideInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: slideInUp 1s ease-out 0.2s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: slideInUp 1s ease-out 0.4s both;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 1.1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      box-shadow: 0 8px 25px rgba(255,107,107,0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #333;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .about-card {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+    }
+
+    .about-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .about-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #667eea;
+    }
+
+    /* Products Section */
+    .products {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .product-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .product-card:hover::before {
+      animation: shine 0.6s ease-in-out;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(102,126,234,0.3);
+    }
+
+    .product-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Subscription Section */
+    .subscription {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .subscription-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      padding: 3rem;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-top: 3rem;
+    }
+
+    .qr-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .qr-code {
+      width: 200px;
+      height: 200px;
+      background: white;
+      border-radius: 15px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.2rem;
+      background: linear-gradient(45deg, #4ecdc4, #44a08d);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(78,205,196,0.3);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(78,205,196,0.4);
+    }
+
+    /* Footer */
+    .footer {
+      background: #2c3e50;
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      color: #3498db;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #bdc3c7;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .footer-section a:hover {
+      color: #3498db;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #34495e;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      text-align: center;
+      color: #95a5a6;
+    }
+
+    .success, .error {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .success {
+      background: rgba(46, 204, 113, 0.2);
+      color: #27ae60;
+      border: 2px solid rgba(46, 204, 113, 0.3);
+    }
+    
+    .error {
+      background: rgba(231, 76, 60, 0.2);
+      color: #e74c3c;
+      border: 2px solid rgba(231, 76, 60, 0.3);
+    }
+
+    /* Animations */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .subscription-form {
+        margin: 2rem 1rem;
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">🩺 Chakerwarti Sons & Traders</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#subscription">Subscribe</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#subscription" class="cta-btn">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>🏥 Medical Equipment Excellence</h1>
+      <p>Your trusted partner for premium medical equipment services, maintenance, and support. Experience unmatched quality and reliability with our comprehensive solutions.</p>
+      <div class="hero-buttons">
+        <a href="#subscription" class="btn btn-primary">🚀 Subscribe Now</a>
+        <a href="#products" class="btn btn-secondary">🔍 Explore Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us?</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon">🛡️</div>
+          <h3>Reliable Service</h3>
+          <p>Over years of experience in medical equipment maintenance and support. We ensure your equipment runs smoothly with minimal downtime.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">⚡</div>
+          <h3>Quick Response</h3>
+          <p>Priority customer care with rapid response times. Our expert technicians are always ready to assist you whenever you need support.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">💰</div>
+          <h3>Cost Effective</h3>
+          <p>Affordable subscription plans that save you money while providing comprehensive coverage and peace of mind for all your equipment needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products">
+    <div class="container">
+      <h2 class="section-title">Our Product Range</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-icon">🩺</div>
+          <h3>Diagnostic Equipment</h3>
+          <p>High-quality diagnostic tools and equipment for accurate medical assessments and patient care.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">💉</div>
+          <h3>Surgical Instruments</h3>
+          <p>Precision surgical instruments and tools designed for optimal performance in medical procedures.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">🏥</div>
+          <h3>Hospital Equipment</h3>
+          <p>Complete range of hospital equipment including patient monitoring systems and mobility aids.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">🔧</div>
+          <h3>Maintenance Services</h3>
+          <p>Professional maintenance and repair services to keep your medical equipment in peak condition.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">📞</div>
+          <h3>24/7 Support</h3>
+          <p>Round-the-clock technical support and emergency assistance for all your medical equipment needs.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">📋</div>
+          <h3>Training & Documentation</h3>
+          <p>Comprehensive training programs and detailed documentation for equipment operation and maintenance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Section -->
+  <section id="subscription" class="subscription">
+    <div class="container">
+      <h2 class="section-title">🎉 Special Offer - 1 Year Free Service!</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">Get premium medical equipment service and support for just ₹499. Limited time offer!</p>
+      
+      <div class="subscription-form">
+        <div class="qr-section">
+          <div class="qr-code">
+            📱 Scan QR Code<br>
+            <small>Pay ₹499 via UPI</small>
+          </div>
+          <p><strong>Step 1:</strong> Pay ₹499 using UPI (GPay, PhonePe, Paytm, etc.)</p>
+        </div>
+
+        <form id="subscriptionForm">
+          <div class="form-group">
+            <label>🙋‍♂️ Your Full Name</label>
+            <input name="name" type="text" placeholder="Enter your full name" required />
+          </div>
+          
+          <div class="form-group">
+            <label>📞 Contact Number</label>
+            <input name="phone" type="tel" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+          
+          <div class="form-group">
+            <label>📧 Email Address</label>
+            <input name="email" type="email" placeholder="your.email@example.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label>📅 Payment Date</label>
+            <input name="paymentDate" type="date" required />
+          </div>
+          
+          <div class="form-group">
+            <label>📸 Payment Screenshot Link</label>
+            <input name="paymentLink" type="url" placeholder="Google Drive/Dropbox link to payment screenshot" required />
+          </div>
+          
+          <button type="submit" class="submit-btn">✅ Confirm Subscription</button>
+          <div id="response"></div>
+        </form>
+
+        <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.9;">
+          <p><strong>✅ What's Included:</strong></p>
+          <p>• 1-year free service & support on medical equipment</p>
+          <p>• Priority customer care</p>
+          <p>• Hassle-free service tracking</p>
+          <p>• One device per subscription</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🩺 Chakerwarti Sons & Traders</h3>
+        <p>Your trusted partner for medical equipment excellence. We provide reliable, cost-effective solutions for all your medical equipment needs.</p>
+      </div>
+      <div class="footer-section">
+        <h3>📞 Contact Information</h3>
+        <a href="tel:+918797223004">📱 +91 8797 22 3004</a>
+        <a href="mailto:aadityakum123@gmail.com">📧 aadityakum123@gmail.com</a>
+        <p>🕒 Available 24/7 for emergency support</p>
+      </div>
+      <div class="footer-section">
+        <h3>🔗 Quick Links</h3>
+        <a href="#about">About Us</a>
+        <a href="#products">Our Products</a>
+        <a href="#subscription">Subscribe Now</a>
+        <a href="#contact">Contact Support</a>
+      </div>
+      <div class="footer-section">
+        <h3>💼 Our Services</h3>
+        <p>• Medical Equipment Sales</p>
+        <p>• Maintenance & Repair</p>
+        <p>• Technical Support</p>
+        <p>• Training & Documentation</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Chakerwarti Sons & Traders. All rights reserved. | Creativity & Sciences</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission handling
+    const form = document.getElementById("subscriptionForm");
+    const responseBox = document.getElementById("response");
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzF1hwAcoVPd8qkh3_gKhUfH24JRl-QeKBTe3qjp126mqsge2VfYmt4I7OwvfAuLNrk/exec";
+    
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      responseBox.className = "";
+      responseBox.innerHTML = "⏳ Submitting your subscription...";
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => res.text())
+      .then((text) => {
+        if (text.toLowerCase().includes("success")) {
+          responseBox.className = "success";
+          responseBox.innerHTML = "🎉 Subscription submitted successfully!<br><small>You will receive a confirmation email shortly.</small>";
+          form.reset();
+        } else {
+          throw new Error(text);
+        }
+      })
+      .catch((err) => {
+        responseBox.className = "error";
+        responseBox.innerHTML = "❌ Submission failed. Please try again or contact us directly.";
+        console.error(err);
+      });
+    });
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(102, 126, 234, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+      } else {
+        header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        header.style.backdropFilter = 'none';
+      }
+    });
+
+    // Animate cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.about-card, .product-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(50px)';
+      card.style.transition = 'all 0.6s ease';
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
