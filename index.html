@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chakerwarti Sons & Traders - Medical Equipment Excellence</title>
+  <title>Creativity & Sciences - Medical Equipment Excellence</title>
   <style>
     * {
       margin: 0;
@@ -20,7 +20,7 @@
 
     /* Header */
     .header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
       color: white;
       padding: 1rem 0;
       position: fixed;
@@ -28,6 +28,7 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
     }
 
     .nav-container {
@@ -36,21 +37,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 2rem;
+      padding: 0 1rem;
     }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      background: linear-gradient(45deg, #fff, #f0f8ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .logo img{
+      display: flex;
+      align-items: center;
+      width: 250px;
+      height: 60px;
+      gap: 10px;
     }
+
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .nav-links a {
@@ -67,25 +69,39 @@
       transform: translateY(-2px);
     }
 
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .mobile-menu span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
     .cta-btn {
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      background: linear-gradient(45deg, #10b981, #059669);
       padding: 0.8rem 1.5rem;
       border-radius: 30px;
       color: white;
       text-decoration: none;
       font-weight: bold;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+      box-shadow: 0 4px 15px rgba(16,185,129,0.3);
     }
 
     .cta-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+      box-shadow: 0 6px 20px rgba(16,185,129,0.4);
     }
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
       color: white;
       padding: 120px 0 80px;
       text-align: center;
@@ -107,13 +123,13 @@
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1rem;
       position: relative;
       z-index: 2;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
       font-weight: 700;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
@@ -121,7 +137,7 @@
     }
 
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 2rem;
       opacity: 0.9;
       animation: slideInUp 1s ease-out 0.2s both;
@@ -146,9 +162,9 @@
     }
 
     .btn-primary {
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      background: linear-gradient(45deg, #10b981, #059669);
       color: white;
-      box-shadow: 0 8px 25px rgba(255,107,107,0.3);
+      box-shadow: 0 8px 25px rgba(16,185,129,0.3);
     }
 
     .btn-secondary {
@@ -166,20 +182,20 @@
     /* About Section */
     .about {
       padding: 80px 0;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1rem;
     }
 
     .section-title {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 3rem;
-      color: #333;
+      color: #1e3a5f;
       position: relative;
     }
 
@@ -191,36 +207,27 @@
       transform: translateX(-50%);
       width: 80px;
       height: 4px;
-      background: linear-gradient(45deg, #667eea, #764ba2);
+      background: linear-gradient(45deg, #2c5aa0, #10b981);
       border-radius: 2px;
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
       margin-top: 4rem;
     }
 
     .about-card {
       background: white;
-      padding: 3rem 2rem;
+      padding: 2.5rem 2rem;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-    }
-
-    .about-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-top: 4px solid #10b981;
     }
 
     .about-card:hover {
@@ -231,7 +238,7 @@
     .about-icon {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: #667eea;
+      color: #2c5aa0;
     }
 
     /* Products Section */
@@ -248,7 +255,7 @@
     }
 
     .product-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);
       color: white;
       padding: 2rem;
       border-radius: 20px;
@@ -277,7 +284,7 @@
 
     .product-card:hover {
       transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 15px 40px rgba(102,126,234,0.3);
+      box-shadow: 0 15px 40px rgba(44,90,160,0.3);
     }
 
     .product-icon {
@@ -288,7 +295,7 @@
     /* Subscription Section */
     .subscription {
       padding: 80px 0;
-      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
       color: white;
       text-align: center;
     }
@@ -297,7 +304,7 @@
       max-width: 600px;
       margin: 0 auto;
       background: rgba(255,255,255,0.1);
-      padding: 3rem;
+      padding: 2.5rem;
       border-radius: 25px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.2);
@@ -310,17 +317,30 @@
     }
 
     .qr-code {
-      width: 200px;
-      height: 200px;
+      width: 220px;
+      height: 220px;
       background: white;
       border-radius: 15px;
       margin: 0 auto 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #333;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ3aGl0ZSIvPgo8IS0tIFFSIENvZGUgUGF0dGVybiAtLT4KPHN0eWxlPgouZCB7IGZpbGw6ICMwMDA7IH0KPC9zdHlsZT4KPCEtLSBUb3AgbGVmdCBjb3JuZXIgLS0+CjxyZWN0IGNsYXNzPSJkIiB4PSIyMCIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjI3IiB5PSIyMCIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8IS0tIE1vcmUgUVIgcGF0dGVybiBibG9ja3MgLS0+CjxyZWN0IGNsYXNzPSJkIiB4PSI0MSIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjQ4IiB5PSIyMCIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iNTUiIHk9IjIwIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSI2OSIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9Ijc2IiB5PSIyMCIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iODMiIHk9IjIwIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSI5NyIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjEwNCIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjExMSIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjEyNSIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjEzMiIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjEzOSIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjE1MyIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjE2MCIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjE2NyIgeT0iMjAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KCjwhLS0gU2Vjb25kIHJvdyAtLT4KPHJlY3QgY2xhc3M9ImQiIHg9IjIwIiB5PSIyNyIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iNjIiIHk9IjI3IiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSI4MyIgeT0iMjciIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjExOCIgeT0iMjciIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjE2NyIgeT0iMjciIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KCjwhLS0gTW9yZSByb3dzIC0tPgo8cmVjdCBjbGFzcz0iZCIgeD0iMjAiIHk9IjM0IiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSIzNCIgeT0iMzQiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjQxIiB5PSIzNCIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iNDgiIHk9IjM0IiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSI2OSIgeT0iMzQiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjEwNCIgeT0iMzQiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjEzMiIgeT0iMzQiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjE2NyIgeT0iMzQiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KCjwhLS0gQ29udGludWUgUVIgcGF0dGVybiAtLT4KPHJlY3QgY2xhc3M9ImQiIHg9IjIwIiB5PSI0MSIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iMzQiIHk9IjQxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSI0MSIgeT0iNDEiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjQ4IiB5PSI0MSIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iNjIiIHk9IjQxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSI5NyIgeT0iNDEiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjExMSIgeT0iNDEiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjEzOSIgeT0iNDEiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9IjE2NyIgeT0iNDEiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KCjwhLS0gQWRkIGNlbnRlciBkZXRlY3Rpb24gcGF0dGVybiAtLT4KPHJlY3QgY2xhc3M9ImQiIHg9IjkwIiB5PSI5MCIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iOTciIHk9IjgzIiB3aWR0aD0iNyIgaGVpZ2h0PSI3Ii8+CjxyZWN0IGNsYXNzPSJkIiB4PSI5NyIgeT0iOTAiIHdpZHRoPSI3IiBoZWlnaHQ9IjciLz4KPHJlY3QgY2xhc3M9ImQiIHg9Ijk3IiB5PSI5NyIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgo8cmVjdCBjbGFzcz0iZCIgeD0iMTA0IiB5PSI5MCIgd2lkdGg9IjciIGhlaWdodD0iNyIvPgoKPCEtLSBBZGQgbW9yZSBkYXRhIHBhdHRlcm4gLS0+Cjx0ZXh0IHg9IjEwMCIgeT0iMTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMDAwIj7inrk0OTk8L3RleHQ+Cjx0ZXh0IHg9IjEwMCIgeT0iMTkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjgiIGZpbGw9IiMwMDAiPjg0MzMwNzMzMjdAaWJsPC90ZXh0Pgo8L3N2Zz4=');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .payment-details {
+      background: rgba(255,255,255,0.9);
+      color: #333;
+      padding: 1rem;
+      border-radius: 10px;
+      margin: 1rem 0;
+      font-weight: bold;
     }
 
     .form-group {
@@ -354,7 +374,7 @@
     .submit-btn {
       width: 100%;
       padding: 1.2rem;
-      background: linear-gradient(45deg, #4ecdc4, #44a08d);
+      background: linear-gradient(45deg, #2c5aa0, #1e3a5f);
       color: white;
       border: none;
       border-radius: 50px;
@@ -362,17 +382,17 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(78,205,196,0.3);
+      box-shadow: 0 8px 25px rgba(44,90,160,0.3);
     }
 
     .submit-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(78,205,196,0.4);
+      box-shadow: 0 12px 35px rgba(44,90,160,0.4);
     }
 
     /* Footer */
     .footer {
-      background: #2c3e50;
+      background: #1e3a5f;
       color: white;
       padding: 3rem 0 1rem;
     }
@@ -380,35 +400,35 @@
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
+      gap: 2rem;
     }
 
-    .footer-section h3 {
-      margin-bottom: 1rem;
-      color: #3498db;
+    .footer-section img{
+      width: 250px;
+      height: 60px;
     }
 
     .footer-section p,
     .footer-section a {
-      color: #bdc3c7;
+      color: #94a3b8;
       text-decoration: none;
       margin-bottom: 0.5rem;
       display: block;
     }
 
     .footer-section a:hover {
-      color: #3498db;
+      color: #10b981;
     }
 
     .footer-bottom {
-      border-top: 1px solid #34495e;
+      border-top: 1px solid #334155;
       margin-top: 2rem;
       padding-top: 1rem;
       text-align: center;
-      color: #95a5a6;
+      color: #64748b;
     }
 
     .success, .error {
@@ -420,15 +440,15 @@
     }
     
     .success {
-      background: rgba(46, 204, 113, 0.2);
-      color: #27ae60;
-      border: 2px solid rgba(46, 204, 113, 0.3);
+      background: rgba(16, 185, 129, 0.2);
+      color: #059669;
+      border: 2px solid rgba(16, 185, 129, 0.3);
     }
     
     .error {
-      background: rgba(231, 76, 60, 0.2);
-      color: #e74c3c;
-      border: 2px solid rgba(231, 76, 60, 0.3);
+      background: rgba(239, 68, 68, 0.2);
+      color: #dc2626;
+      border: 2px solid rgba(239, 68, 68, 0.3);
     }
 
     /* Animations */
@@ -449,14 +469,44 @@
       100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
     }
 
-    /* Responsive Design */
+    /* Mobile Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #1e3a5f;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      }
+      
+      .nav-container .logo img{
+        width: 180px;
+        height: 40px;
+      }
+
+      .footer-section img{
+        width: 200px;
+        height: 40px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .mobile-menu {
+        display: flex;
       }
       
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
       }
       
       .hero-buttons {
@@ -464,18 +514,53 @@
         align-items: center;
       }
       
+      .section-title {
+        font-size: 2rem;
+      }
+      
       .subscription-form {
-        margin: 2rem 1rem;
+        margin: 2rem 0.5rem;
         padding: 2rem 1rem;
+      }
+
+      .qr-code {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .about-grid,
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+    .header-logo { display: none; }
+    .footer-logo { display: none; }
+    .header-text, .footer-text { display: none; }
+    @media (max-width: 500px) {
+      .header-text, .footer-text {
+        font-size: 1rem;
+        margin: 8px 0;
+      }
+      .header-logo {
+        height: 28px;
+      }
+      .logo {
+        font-size: 1rem;
+        gap: 6px;
       }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="nav-container">
-      <div class="logo">🩺 Chakerwarti Sons & Traders</div>
+      <div class="logo">
+        <img src="logo.png" alt="Logo">
+      </div>
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -570,9 +655,9 @@
       
       <div class="subscription-form">
         <div class="qr-section">
-          <div class="qr-code">
-            📱 Scan QR Code<br>
-            <small>Pay ₹499 via UPI</small>
+          <div class="qr-code" style="position:relative;">
+            <canvas id="subscription-qr"></canvas>
+            <img src="logo2.png" alt="Logo" class="qr-logo" style="position:absolute;top:50%;left:50%;width:48px;height:48px;transform:translate(-50%,-50%);border-radius:10px;border:2px solid #fff;box-shadow:0 2px 8px rgba(60,72,88,0.10);background:#fff;object-fit:cover;">
           </div>
           <p><strong>Step 1:</strong> Pay ₹499 using UPI (GPay, PhonePe, Paytm, etc.)</p>
         </div>
@@ -599,8 +684,9 @@
           </div>
           
           <div class="form-group">
-            <label>📸 Payment Screenshot Link</label>
-            <input name="paymentLink" type="url" placeholder="Google Drive/Dropbox link to payment screenshot" required />
+            <label>📸 Upload Payment Screenshot</label>
+            <input name="paymentScreenshot" type="file" accept="image/*" required />
+            <img id="screenshotPreview" style="display:none;max-width:100%;margin-top:10px;border-radius:8px;" />
           </div>
           
           <button type="submit" class="submit-btn">✅ Confirm Subscription</button>
@@ -622,7 +708,7 @@
   <footer id="contact" class="footer">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>🩺 Chakerwarti Sons & Traders</h3>
+        <img src="logo.png" alt="Logo">
         <p>Your trusted partner for medical equipment excellence. We provide reliable, cost-effective solutions for all your medical equipment needs.</p>
       </div>
       <div class="footer-section">
@@ -647,7 +733,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Chakerwarti Sons & Traders. All rights reserved. | Creativity & Sciences</p>
+      <p>&copy; 2025 Creativity and Sciences. All rights reserved. | Creativity & Sciences</p>
     </div>
   </footer>
 
@@ -676,40 +762,30 @@
       responseBox.className = "";
       responseBox.innerHTML = "⏳ Submitting your subscription...";
       
-      // Get form data and convert to JSON (matching your Google Apps Script)
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
       
-      // Send as JSON to match your doPost function
       fetch(scriptURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        method: "POST",
         body: JSON.stringify(data),
-        mode: 'no-cors' // This helps avoid CORS preflight
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .then(() => {
-        // With no-cors mode, we can't read the response, but the request goes through
-        responseBox.className = "success";
-        responseBox.innerHTML = `
-          🎉 <strong>Subscription submitted successfully!</strong><br>
-          <small>✅ Your payment will be verified within 24 hours<br>
-          📧 You'll receive a confirmation email once verified<br>
-          📞 Questions? Call us at +91 8797 22 3004</small>
-        `;
-        form.reset();
+      .then((res) => res.text())
+      .then((text) => {
+        if (text.toLowerCase().includes("success")) {
+          responseBox.className = "success";
+          responseBox.innerHTML = "🎉 Subscription submitted successfully!<br><small>You will receive a confirmation email shortly.</small>";
+          form.reset();
+        } else {
+          throw new Error(text);
+        }
       })
-      .catch(error => {
-        console.log('Submission error:', error);
-        // Even with errors, the form might still be submitted due to CORS
-        responseBox.className = "success";
-        responseBox.innerHTML = `
-          📨 <strong>Form submitted!</strong><br>
-          <small>If you don't receive confirmation within 24 hours, please contact us:<br>
-          📞 +91 8797 22 3004 | 📧 aadityakum123@gmail.com</small>
-        `;
-        form.reset();
+      .catch((err) => {
+        responseBox.className = "error";
+        responseBox.innerHTML = "❌ Submission failed. Please try again or contact us directly.";
+        console.error(err);
       });
     });
 
@@ -746,6 +822,39 @@
       card.style.transition = 'all 0.6s ease';
       observer.observe(card);
     });
+
+    // Generate UPI QR code for subscription section
+    const upiId = "8433073327@ibl";
+    const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Your%20Name&am=499`;
+    if (document.getElementById('subscription-qr')) {
+      new QRious({
+        element: document.getElementById('subscription-qr'),
+        value: upiUrl,
+        size: 180,
+        background: 'white',
+        foreground: '#2d3748',
+        level: 'H'
+      });
+    }
+
+    // Image preview for payment screenshot
+    const paymentInput = document.querySelector('input[name="paymentScreenshot"]');
+    const previewImg = document.getElementById('screenshotPreview');
+    if (paymentInput && previewImg) {
+      paymentInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            previewImg.src = e.target.result;
+            previewImg.style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+        } else {
+          previewImg.style.display = 'none';
+        }
+      });
+    }
   </script>
 </body>
 </html>
