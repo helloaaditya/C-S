@@ -751,37 +751,176 @@
       });
     });
 
-    // Form submission handling
+    // // Form submission handling
+    // const form = document.getElementById("subscriptionForm");
+    // const responseBox = document.getElementById("response");
+    // const scriptURL = "https://script.google.com/macros/s/AKfycbxmW8cC5v6NH0ExD5bwstkX5QmdAxfaj12pDIQQ9R2wAiAllo0TWaIsOwV8qmCNdgaI/exec";
+    
+    // form.addEventListener("submit", function (e) {
+    //   e.preventDefault();
+    //   responseBox.className = "";
+    //   responseBox.innerHTML = "⏳ Submitting your subscription...";
+      
+    //   const formData = new FormData(form);
+      
+    //   // Use form submission method to avoid CORS issues
+    //   fetch(scriptURL, {
+    //     method: 'POST',
+    //     body: formData
+    //   })
+    //   .then(response => response.text())
+    //   .then(result => {
+    //     responseBox.className = "success";
+    //     responseBox.innerHTML = "🎉 Subscription submitted successfully!<br><small>You will receive a confirmation email shortly.</small>";
+    //     form.reset();
+    //   })
+    //   .catch(error => {
+    //     // Even if there's an error, the form might still be submitted
+    //     // Google Apps Script often returns CORS errors even on successful submissions
+    //     console.log('Submission attempted:', error);
+    //     responseBox.className = "success";
+    //     responseBox.innerHTML = "📨 Form submitted! If you don't receive confirmation within 24 hours, please contact us at +91 8797 22 3004";
+    //     form.reset();
+    //   });
+    // });
+
+    // Enhanced form submission handling
     const form = document.getElementById("subscriptionForm");
     const responseBox = document.getElementById("response");
+    const submitBtn = document.getElementById("submitBtn");
+    const debugContent = document.getElementById("debugContent");
     const scriptURL = "https://script.google.com/macros/s/AKfycbxmW8cC5v6NH0ExD5bwstkX5QmdAxfaj12pDIQQ9R2wAiAllo0TWaIsOwV8qmCNdgaI/exec";
     
+    // Set today's date as default
+    document.querySelector('input[name="paymentDate"]').valueAsDate = new Date();
+    
+    function showResponse(message, type) {
+      responseBox.innerHTML = message;
+      responseBox.className = `response ${type}`;
+      responseBox.style.display = 'block';
+    }
+
+    function logDebug(message, data = null) {
+      const timestamp = new Date().toLocaleTimeString();
+      const logEntry = `[${timestamp}] ${message}`;
+      debugContent.innerHTML += `<div><strong>${logEntry}</strong></div>`;
+      if (data) {
+        debugContent.innerHTML += `<pre style="background: rgba(255,255,255,0.1); padding: 10px; margin: 5px 0; border-radius: 5px; overflow-x: auto;">${JSON.stringify(data, null, 2)}</pre>`;
+      }
+      console.log(logEntry, data);
+    }
+
+    function toggleDebug() {
+      const panel = document.getElementById("debugPanel");
+      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Real-time validation for transaction number
+    document.getElementById('transactionNumberInput').addEventListener('input', function(e) {
+      const value = e.target.value.trim();
+      const field = e.target;
+      
+      if (value.length >= 8) {
+        field.style.borderColor = '#22c55e';
+        field.style.background = 'rgba(34, 197, 94, 0.1)';
+      } else {
+        field.style.borderColor = '#fbbf24';
+        field.style.background = 'rgba(251, 191, 36, 0.1)';
+      }
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      responseBox.className = "";
-      responseBox.innerHTML = "⏳ Submitting your subscription...";
+      
+      // Clear previous debug info
+      debugContent.innerHTML = "";
+      
+      showResponse("⏳ Submitting your subscription...", "loading");
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
       
       const formData = new FormData(form);
       
-      // Use form submission method to avoid CORS issues
+      // Convert FormData to object for debugging
+      const formDataObj = {};
+      for (let [key, value] of formData.entries()) {
+        formDataObj[key] = value;
+      }
+      
+      logDebug("📤 Form data being submitted:", formDataObj);
+      
+      // Specifically validate and log transaction number
+      const transactionNumber = formData.get('transactionNumber');
+      logDebug(`🔢 Transaction Number: "${transactionNumber}" (Length: ${transactionNumber ? transactionNumber.length : 0})`);
+      
+      if (!transactionNumber || transactionNumber.trim().length < 8) {
+        showResponse("❌ Please enter a valid transaction number (at least 8 characters)", "error");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "✅ Confirm Subscription";
+        logDebug("❌ Validation failed: Transaction number too short");
+        return;
+      }
+
+      // Enhanced form submission with better error handling
       fetch(scriptURL, {
         method: 'POST',
         body: formData
       })
-      .then(response => response.text())
+      .then(response => {
+        logDebug("📥 Response received", {
+          status: response.status,
+          statusText: response.statusText,
+          ok: response.ok
+        });
+        return response.text();
+      })
       .then(result => {
-        responseBox.className = "success";
-        responseBox.innerHTML = "🎉 Subscription submitted successfully!<br><small>You will receive a confirmation email shortly.</small>";
-        form.reset();
+        logDebug("📄 Response content:", result);
+        
+        if (result.toLowerCase().includes("success")) {
+          showResponse(`
+            🎉 Subscription submitted successfully!<br>
+            <strong>Transaction #: ${transactionNumber}</strong><br>
+            <small>You will receive a confirmation email shortly.</small>
+          `, "success");
+          form.reset();
+          // Reset date to today
+          document.querySelector('input[name="paymentDate"]').valueAsDate = new Date();
+        } else {
+          showResponse(`
+            📨 Form submitted!<br>
+            <strong>Transaction #: ${transactionNumber}</strong><br>
+            <small>If you don't receive confirmation within 24 hours, please contact us at +91 8797 22 3004</small>
+          `, "success");
+          form.reset();
+          document.querySelector('input[name="paymentDate"]').valueAsDate = new Date();
+        }
       })
       .catch(error => {
-        // Even if there's an error, the form might still be submitted
-        // Google Apps Script often returns CORS errors even on successful submissions
-        console.log('Submission attempted:', error);
-        responseBox.className = "success";
-        responseBox.innerHTML = "📨 Form submitted! If you don't receive confirmation within 24 hours, please contact us at +91 8797 22 3004";
+        logDebug("❌ Fetch error (might be CORS - this is normal):", error);
+        
+        // Even with CORS errors, the form submission often succeeds
+        showResponse(`
+          📨 Form submitted! <br>
+          <strong>Transaction #: ${transactionNumber}</strong><br>
+          <small>CORS error is normal. Check your email for confirmation or contact us at +91 8797 22 3004 if needed.</small>
+        `, "success");
         form.reset();
+        document.querySelector('input[name="paymentDate"]').valueAsDate = new Date();
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "✅ Confirm Subscription";
+        logDebug("✅ Form submission process completed");
       });
+    });
+
+    // Additional validation on form elements
+    form.addEventListener('change', function(e) {
+      if (e.target.name === 'transactionNumber') {
+        const value = e.target.value.trim();
+        logDebug(`Transaction number changed: "${value}"`);
+      }
     });
 
     // Add scroll effect to header
@@ -834,6 +973,7 @@
   </script>
 </body>
 </html>
+
 
 
 
