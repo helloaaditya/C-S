@@ -755,6 +755,9 @@
     const form = document.getElementById("subscriptionForm");
     const responseBox = document.getElementById("response");
     const scriptURL = "https://script.google.com/macros/s/AKfycbx-Vih79QGCNK6bBFpolXJ_SbUdbmdPk7ZwRmqlTpU5H8SNeKf_P-bQLefg6VvF3fC1/exec";
+
+    document.querySelector('input[name="paymentDate"]').valueAsDate = new Date();
+
     
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -762,8 +765,6 @@
       responseBox.innerHTML = "⏳ Submitting your subscription...";
       
       const formData = new FormData(form);
-    document.querySelector('input[name="paymentDate"]').valueAsDate = new Date();
-
       
       // Use form submission method to avoid CORS issues
       fetch(scriptURL, {
@@ -975,6 +976,7 @@
   </script>
 </body>
 </html>
+
 
 
 
